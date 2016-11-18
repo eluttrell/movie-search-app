@@ -1,0 +1,17 @@
+<div class="smallSearch">
+    <form ng-submit="searchMovie()" autocomplete="off">
+        <span class="search-cursor">></span>
+        <input class="search-field" type="text" ng-model="query" placeholder="Find another movie..." autofocus="on">
+    </form>
+    <hr>
+    <nav>
+      <a ui-sref="home"><button class="nav-button" type="button" name="home">Home</button></a>
+    </nav>
+</div>
+<hr>
+<div class="search-nav" ng-repeat="result in nowPlaying | orderBy : result.release_date">
+    <a class="movie-img-container" ui-sref='movie({query: "{{lastSearch}}", id: "{{result.id}}"})'>
+        <p ng-if="!result.poster_path" class="noImgName">
+            {{result.original_title}}
+        </p><img ng-if="result.poster_path" ng-src="https://image.tmdb.org/t/p/w300/{{result.poster_path}}" alt="Movie Poster" width="300px" height="425px" /></a>
+</div>

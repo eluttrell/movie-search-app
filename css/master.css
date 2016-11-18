@@ -1,0 +1,147 @@
+* {
+  font-family: "Lobster";
+}
+
+.main-page {
+  font-size: 7em;
+}
+
+body {
+    height: 100%;
+    background: antiquewhite;
+}
+
+html {
+    height: 90%;
+}
+
+h1 {
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.mainSearch {
+    position: relative;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.search-form {
+  float: left;
+  width: 100%;
+}
+
+.nav-button {
+    border: none;
+    height: 50px;
+    font-size: 2em;
+}
+
+.nav-button:hover {
+    cursor: pointer;
+}
+
+.search-cursor {
+    font-size: 40px;
+    opacity: .5;
+}
+
+.search-field {
+    width: auto;
+    height: 40px;
+    font-size: 40px;
+    padding: 4px;
+    font-family: monospace;
+    background-color: antiquewhite;
+    border: none;
+    opacity: .5;
+}
+
+textarea:focus, input:focus {
+    outline: none;
+}
+
+div.search-nav {
+  float: left;
+  height: 425px;
+  width: 300px;
+  margin: 2px 2px 2px 2px;
+  background-color: lightslategray;
+}
+
+.noImgName {
+  position: relative;
+  left: 10px;
+  width: 100px;
+}
+
+.detail-img {
+  float: right;
+}
+
+.detail-no-img {
+  float: right;
+  height: 425px;
+  width: 300px;
+  text-align: center;
+  background-color: lightslategray;
+}
+
+.detail-img-hover:hover {
+  cursor: zoom-in;
+}
+
+.detail-img-hover2:hover {
+  cursor: zoom-out;
+}
+
+.detail-info {
+  float: left;
+  width: 70%;
+}
+
+.big-poster-img {
+  text-align: center;
+}
+
+.overview {
+  width: 100%;
+
+}
+
+.overview > h4 {
+  font-family: monospace !important;
+}
+
+.basic-info > h4,
+.cast-info > h4 {
+  font-family: monospace !important;
+}
+
+.basic-info,
+.cast-info {
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+
+.now-playing {
+  text-decoration: none;
+  font-family: "Lobster";
+  color: black !important;
+}
+
+.pagination {
+  float: right;
+}
+
+.page-control {
+  text-decoration: none;
+  color: black !important;
+}
+
+.page-control:hover {
+  cursor: pointer;
+}

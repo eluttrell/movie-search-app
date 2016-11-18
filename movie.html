@@ -1,0 +1,63 @@
+<div ng-show="!bigPosterBool">
+  <div class="smallSearch">
+      <form class="search-form" ng-submit="searchMovie()" autocomplete="off">
+          <span class="search-cursor">></span>
+          <input class="search-field" type="text" ng-model="query" placeholder="Find another movie..." autofocus="on">
+      </form>
+      <hr>
+      <nav>
+        <a ui-sref="search({query: '{{backButton}}'})"><button class="nav-button" type="button" name="home">Back</button></a>
+        <a ui-sref="home"><button class="nav-button" type="button" name="home">Home</button></a>
+      </nav>
+  </div>
+  <hr>
+  <h1>{{details.original_title}}</h1>
+  <hr>
+  <div ng-if="!details.poster_path" class="detail-no-img">
+      <p class="detail-no-img">
+          {{details.original_title}}<br>No Poster
+      </p>
+  </div>
+  <span ng-click="bigPoster()" class="detail-img-hover"><img ng-if="details.poster_path" class="detail-img" ng-src="https://image.tmdb.org/t/p/w300/{{details.poster_path}}" alt="Movie Poster" width="300px" height="425px" /></span>
+  <div class="detail-info">
+      <div class="overview">
+        <h3>Overview:</h3>
+        <h4>{{details.overview}}</h4>
+        <h4 ng-if="!details.overview">Nothing to see here</h4>
+        <h3>Rating:</h3>
+        <h4>{{details.popularity}}</h4>
+      </div>
+      <div class="basic-info">
+        <h3>Release Date:</h3>
+        <h4>{{details.release_date}}</h4>
+        <h4 ng-if="!details.release_date">Nothing to see here</h4>
+        <h3>Genres:</h3>
+        <h4 ng-repeat="objects in details.genres">{{objects.name}}</h4>
+        <h4 ng-if="!details.genres">Nothing to see here</h4>
+        <h3>Runtime:</h3>
+        <h4>{{details.runtime}} mins</h4>
+        <h4 ng-if="!details.runtime">Nothing to see here</h4>
+        <h3>Produced In:</h3>
+        <h4>{{details.production_countries[0].name}}</h4>
+        <h4 ng-if="!details.production_countries[0].name">Nothing to see here</h4>
+      </div>
+      <div class="cast-info">
+        <h3>Directed By:</h3>
+        <h4>{{credits.crew[1].name}}</h4>
+        <h4 ng-if="!credits.crew[1].name">Nothing to see here</h4>
+        <h3>Written By:</h3>
+        <h4>{{credits.crew[2].name}}</h4>
+        <h4 ng-if="!credits.crew[2].name">Nothing to see here</h4>
+        <h3>Top Billed Cast:</h3>
+        <h4 ng-if="credits.cast[0].name && credits.cast[0].character">{{credits.cast[0].name}} as "{{credits.cast[0].character}}"</h4>
+        <h4 ng-show="!credits.cast[0].name">Unknown</h4>
+        <h4 ng-if="credits.cast[1].name && credits.cast[1].character">{{credits.cast[1].name}} as "{{credits.cast[1].character}}"</h4>
+        <h4 ng-show="!credits.cast[1].name">Unknown</h4>
+        <h4 ng-if="credits.cast[2].name && credits.cast[2].character">{{credits.cast[2].name}} as "{{credits.cast[2].character}}"</h4>
+        <h4 ng-show="!credits.cast[2].name">Unknown</h4>
+      </div>
+  </div>
+</div>
+<div class="big-poster-img" ng-show="bigPosterBool">
+  <span ng-click="bigPoster()" class="detail-img-hover2"><img ng-if="details.poster_path" ng-src="https://image.tmdb.org/t/p/w780/{{details.poster_path}}" alt="Movie Poster"/></span>
+</div>

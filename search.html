@@ -1,0 +1,37 @@
+<div class="smallSearch">
+    <form ng-submit="searchMovie()" autocomplete="off">
+        <span class="search-cursor">></span>
+        <input class="search-field" type="text" ng-model="query" placeholder="Find another movie..." autofocus="on">
+    </form>
+    <hr>
+    <nav>
+        <a ui-sref="home"><button class="nav-button" type="button" name="home">Home</button></a>
+        <span class="pagination">
+        <a class="page-control" ng-click="firstPage()" ng-hide="currentPage.page === 1">
+          first << |
+        </a>
+        <a class="page-control" ng-click="pageDown()" ng-hide="currentPage.page === 1">
+          previous page <
+        </a>
+        <span ng-hide="currentPage.page === 1">|</span>
+        <a class="page-control" ng-click="pageUp()" ng-hide="currentPage.page >= 1000">
+          > next page |
+        </a>
+        <a class="page-control" ng-click="lastPage()" ng-hide="currentPage.page >= 1000">
+          >> last
+        </a>
+      </span>
+    </nav>
+</div>
+<hr>
+<h1>Your search for "{{lastSearch}}" returned:</h1>
+<hr>
+
+<div class="center-search">
+  <div class="search-nav" ng-repeat="result in results | orderBy : result.release_date">
+      <a class="movie-img-container" ui-sref='movie({query: "{{lastSearch}}", id: "{{result.id}}"})'>
+          <p ng-if="!result.poster_path" class="noImgName">
+              {{result.original_title}}
+          </p><img class="center-search-img" ng-if="result.poster_path" ng-src="https://image.tmdb.org/t/p/w300/{{result.poster_path}}" alt="Movie Poster" width="300px" height="425px" /></a>
+  </div>
+</div>
